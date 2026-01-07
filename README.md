@@ -1,25 +1,29 @@
 # Lua Set Theory Implementation
 
-Lua does not have a built-in notion of a **Set** data type. While standard tables can be adapted to behave like sets (as demonstrated in [Programming in Lua, Chapter 11.5](https://www.lua.org/pil/11.5.html)), that approach is essentially just a basic hash table wrapper.
+Lua doesn't really have a notion of a Set, but like everything in Lua, a basic table can be extended to act like one.
 
-For applications involving **Set Theory**, a more rigorous implementation is required. This project attempts to bridge that gap by creating a robust `SET` class that strictly adheres to mathematical set logic.
+Programming in Lua (first edition) suggest a set implementation as a hasmap [here](https://www.lua.org/pil/11.5.html). 
+
+Obviously for Set Theory you want a more rigorous implementation, so this is my attempt at creating something like that.
 
 ## Overview
 
-The entire implementation is contained within the `SET` table in `main.lua`. It expands upon basic table functionality to support standard set operations and operators.
+The implementation is all done via the `SET` table in `main.lua`. It expands the table to handle actual set logic.
 
 ### Features
 * **Construction:** Create sets from lists or other sets.
-* **Cardinality:** Calculate the size of a set (`#A`).
-* **Equality:** Check if two sets are mathematically equal (`A == B`).
-* **Subsets:** Proper subset logic (`A <= B`).
-* **Set Algebra:**
-    * Union (`A + B`)
-    * Intersection (`A * B`)
+* **Cardinality:** Get the size (`#A`).
+* **Equality:** Checks if sets are actually equal (`A == B`).
+* **Subsets:** Standard subset logic (`A <= B`).
+* **Set Algebra:** Union (`+`) and Intersection (`*`).
+
+* ### wip
+* a notion of a "Universe" U to allow for set-compliments.
 
 ## Usage
 
-To run the implementation and view the test results, simply run the main file:
+To run it and see the tests, just run the main file:
 
 ```bash
 lua main.lua
+
